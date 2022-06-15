@@ -56,7 +56,7 @@ AddEventHandler('szi_communityservice:inCommunityService', function(actions_rema
 	while actionsRemaining > 0 and communityServiceFinished ~= true do
 		Citizen.Wait(20000)
 
-		if GetDistanceBetweenCoords(coords, Config.ServiceLocation.x, Config.ServiceLocation.y, Config.ServiceLocation.z) > Config.MaxDistance then
+		if #(coords -  Config.ServiceLocation) > Config.MaxDistance then
 			if IsPedInAnyVehicle(playerPed, false) then
 				ClearPedTasksImmediately(playerPed)
 			end
